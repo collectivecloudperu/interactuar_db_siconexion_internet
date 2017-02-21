@@ -9,28 +9,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-        window.onload = function status()
-        {
-            if(navigator.onLine)
-            {
+        "use strict";
+
+        window.onload = function status() {
+            if (navigator.onLine) {
                 //alert("Si hay conexión a Internet");
                 var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
+                xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                      document.getElementById("mensaje").innerHTML =
-                      this.responseText;
+                        document.getElementById("mensaje").innerHTML = this.responseText;
                     }
                 };
                 xhttp.open("GET", "php/leer.php", true);
                 xhttp.send();
-            }
-            else
-            {
+            } else {
                 //alert("No hay conexión a Internet");
                 var msgfalse = "<span style='color:red;'>No hay conexión a Internet !</span>";
                 document.getElementById('mensaje').innerHTML = msgfalse;
             }
-        }
+        };
     </script>
 
 </head>
